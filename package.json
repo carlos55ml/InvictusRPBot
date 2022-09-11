@@ -1,0 +1,27 @@
+{
+  "name": "invictusrpbot",
+  "version": "0.0.1",
+  "description": "InvictusRP Bot for InvictusRP Discord Server",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos55ml/InvictusRPBot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "javascript"
+  ],
+  "author": "carlos55ml <cmoranlozano55@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlos55ml/InvictusRPBot/issues"
+  },
+  "homepage": "https://github.com/carlos55ml/InvictusRPBot#readme",
+  "dependencies": {
+    "discord.js": "^14.3.0"
+  }
+}
