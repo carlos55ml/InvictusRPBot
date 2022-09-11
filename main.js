@@ -1,12 +1,12 @@
 const fs = require('fs');
-const { Client, Intents, Collection, MessageEmbed, Message, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { Client, GatewayIntentBits , Collection, MessageEmbed, Message, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
 const { config } = require('./config.json');
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MEMBERS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS
+        GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMembers,
     ]
 });
 
