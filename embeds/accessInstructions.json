@@ -1,0 +1,11 @@
+{
+    "title":"INSTRUCCIONES",
+    "description":"Pulsa el boton, se abrira una ventana pidiendote los datos necesarios.",
+    "color": 65535,
+    "fields":[
+        {"name":"Recuerda!", "value":"Leete la normativa antes."},
+        {"name":"Descripcion", "value":"Breve descripcion del rol que quieres hacer en InvictusRP."},
+        {"name":"Tu edad", "value":"Tu edad IRL"}
+    ],
+    "footer":{"text":"Tu mensaje sera enviado a los administradores automaticamente."}
+}
