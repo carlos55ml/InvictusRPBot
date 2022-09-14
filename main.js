@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Client, GatewayIntentBits , Collection, MessageEmbed, Message, MessageActionRow, MessageButton, MessageSelectMenu } = require('discord.js');
+const { Client, GatewayIntentBits , Collection } = require('discord.js');
 const { config } = require('./config.json');
 const client = new Client({
     intents: [
@@ -51,3 +51,5 @@ client.on("warn", (e) => console.warn(e));
 client.on("debug", (e) => console.info(e));
 
 client.login(config.token)
+
+module.exports = client
