@@ -16,8 +16,6 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-    // Set a new item in the Collection
-    // With the key as the command name and the value as the exported module
     client.commands.set(command.data.name, command);
 }
 
@@ -36,6 +34,17 @@ client.on('interactionCreate', async interaction => {
         console.log(`[CONSOLE ==> LOG]: ${interaction.user.tag} in #${interaction.channel.name} triggered a ${interaction} at ${interaction.createdAt} .`);
     };
 })
+
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
 
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
