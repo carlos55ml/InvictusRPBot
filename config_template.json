@@ -2,6 +2,9 @@
     "config": {
         "token": "",
         "clientId": "",
-        "guildId": ""
+        "guildId": "",
+        "accessChannelId": "",
+        "accessAdminChannelId": "",
+        "accessLogChannelId":""
     }
 }
