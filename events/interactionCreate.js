@@ -36,5 +36,37 @@ module.exports = {
                 }
             }
         }
+
+        if (interaction.isSelectMenu()) {
+            if (interaction.channelId === config.accessAdminChannelId) {
+                var reason = ''
+                const permitUser = require('./../app/permitUser.js')
+                const denyUser = require('./../app/denyUser.js')
+
+                switch (interaction.values[0]) {
+                    case 'apply_permit':
+                        permitUser.execute(interaction);
+                        break;
+                    case 'apply_deny1':
+                        reason = 'No has proporcionado la suficiente informacion.'
+                        denyUser.execute(interaction, reason);
+                        break;
+                    case 'apply_deny2':
+                        reason = 'No tienes la edad suficiente.'
+                        denyUser.execute(interaction, reason);
+                        break;
+                    case 'apply_deny3':
+                        reason = 'La descripcion de tu personaje ha sido muy escueta, esfuerzate un poco mas.'
+                        denyUser.execute(interaction, reason);
+                        break;
+                    case 'menu_delete':
+                        interaction.message.delete();
+                        break;
+        
+                    default:
+                        interaction.reply('Ha ocurrido un error inesperado');
+                }
+            }
+        }
     },
 };

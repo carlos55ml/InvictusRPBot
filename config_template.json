@@ -5,6 +5,8 @@
         "guildId": "",
         "accessChannelId": "",
         "accessAdminChannelId": "",
-        "accessLogChannelId":""
+        "accessLogChannelId":"",
+        "resultsChannelId": "",
+        "userRoleId": ""
     }
 }
