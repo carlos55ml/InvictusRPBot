@@ -14,6 +14,7 @@ module.exports = {
             // The label is the prompt the user sees for this input
             .setLabel("Tu nombre")
             .setRequired(true)
+            .setMaxLength(32)
             // Short means only a single line of text
             .setStyle(TextInputStyle.Short);
 
@@ -21,6 +22,7 @@ module.exports = {
             .setCustomId('ageInput')
             .setLabel("Tu edad")
             .setRequired(true)
+            .setMaxLength(32)
             // Paragraph means multiple lines of text.
             .setStyle(TextInputStyle.Short);
         
@@ -28,6 +30,7 @@ module.exports = {
             .setCustomId('expInput')
             .setLabel("Experiencia en Roleplay")
             .setStyle(TextInputStyle.Short)
+            .setMaxLength(32)
             .setRequired(true);
 
         const historyInput = new TextInputBuilder()
