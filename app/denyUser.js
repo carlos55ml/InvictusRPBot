@@ -5,8 +5,23 @@ const client = require("./../main.js")
 
 module.exports = {
     async execute(interaction, reason) {
-        const targetMemberId = interaction.customId;
-        const targetMember = interaction.guild.members.cache.get(targetMemberId);
+        var targetMember
+        var targetMemberId
+        if (interaction.isSelectMenu()) {
+            targetMemberId = interaction.customId;
+            targetMember = interaction.guild.members.cache.get(targetMemberId);
+        }
+
+        if (interaction.isCommand()) {
+            targetMemberId = interaction.options.getUser('user');
+            targetMember = interaction.guild.members.cache.get(targetMemberId.id);
+        }
+
+        if (!targetMember) {
+            console.log("ERROR CRITICO")
+            return
+        }
+
         const admin = interaction.user.tag;
         const results_channel = client.channels.cache.get(config.resultsChannelId)
         
@@ -25,15 +40,29 @@ module.exports = {
 
         if (interaction.member.permissions.has('MANAGE_ROLES')) {
             if (targetMember.roles.cache.has(config.userRoleId)) {
-                await interaction.update({ content: ':yellow_circle: El Usuario <@' + interaction.customId + '> YA ES UN MIEMBRO verificado.', embeds: [], components: [] })
+                if (interaction.isSelectMenu()){
+                    await interaction.update({ content: ':yellow_circle: El Usuario <@' + interaction.customId + '> YA ES UN MIEMBRO verificado.', embeds: [], components: [] })
+                } else {
+                    await interaction.reply(":yellow_circle: El usuario <@"+targetMemberId+"> YA ES UN MIEMBRO verificado.")
+                }
 
             } else {
                 targetMember.send({ embeds: [embed] });
-                await interaction.update({ content: ':no_entry_sign: Usuario <@' + interaction.customId + '> Denegado por <@' + interaction.user.id + '> con razon \`' + reason + '\`', embeds: [], components: [] });
-                results_channel.send(':no_entry_sign: Usuario <@' + interaction.customId + '> Denegado por ' + interaction.user.tag + ' con razon \`' + reason + '\`')
+                if (interaction.isSelectMenu()){
+                    await interaction.update({ content: ':no_entry_sign: Usuario <@' + interaction.customId + '> Denegado por <@' + interaction.user.id + '> con razon \`' + reason + '\`', embeds: [], components: [] });
+                    results_channel.send(':no_entry_sign: Usuario <@' + interaction.customId + '> Denegado por ' + admin + ' con razon \`' + reason + '\`')
+                } else {
+                    await interaction.reply("El usuario <@"+targetMemberId+"> ha sido denegado con razon: \`"+reason+"\`. \nDenegado por <@"+interaction.user.id+">.");
+                    results_channel.send(':no_entry_sign: Usuario <@' + targetMemberId + '> Denegado por '+ admin + ' con razon \`' + reason + '\`')
+                }
+                
             }
         } else {
-            await interaction.update({ content: ':yellow_circle: <@' + interaction.user.id + '> No tienes permisos para hacer eso.', embeds: [], components: [] })
+            if (interaction.isSelectMenu()){
+                await interaction.update({ content: ':yellow_circle: <@' + interaction.user.id + '> No tienes permisos para hacer eso.', embeds: [], components: [] })
+            } else {
+                await interaction.reply("No tienes permisos para hacer eso.")
+            }
         }
     }
 }
