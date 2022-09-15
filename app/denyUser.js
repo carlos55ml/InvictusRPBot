@@ -52,7 +52,7 @@ module.exports = {
                     await interaction.update({ content: ':no_entry_sign: Usuario <@' + interaction.customId + '> Denegado por <@' + interaction.user.id + '> con razon \`' + reason + '\`', embeds: [], components: [] });
                     results_channel.send(':no_entry_sign: Usuario <@' + interaction.customId + '> Denegado por ' + admin + ' con razon \`' + reason + '\`')
                 } else {
-                    await interaction.reply("El usuario <@"+targetMemberId+"> ha sido denegado con razon: \`"+reason+"\`. \nDenegado por <@"+interaction.user.id+">.");
+                    await interaction.reply(":no_entry_sign: El usuario <@"+targetMemberId+"> ha sido denegado con razon: \`"+reason+"\`. \nDenegado por <@"+interaction.user.id+">.");
                     results_channel.send(':no_entry_sign: Usuario <@' + targetMemberId + '> Denegado por '+ admin + ' con razon \`' + reason + '\`')
                 }
                 
