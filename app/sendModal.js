@@ -55,7 +55,9 @@ module.exports = {
         
             try {
                 const channel = client.channels.cache.get(config.accessAdminChannelId)
-                channel.send({ embeds: [applyEmbed], components: [applyRow] })                
+                channel.send({ embeds: [applyEmbed], components: [applyRow] })
+                channel = client.channel.cache.get(config.accessLogChannelId)
+                channel.send({ embeds: [applyEmbed] })
             } catch (err) {
                 console.log(err)
             }
