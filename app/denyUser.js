@@ -1,5 +1,5 @@
 const { config } = require("./../config.json")
-const { EmbedBuilder, SelectMenuBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 const client = require("./../main.js")
 
