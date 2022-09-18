@@ -18,7 +18,7 @@ module.exports = {
                 if (interaction.channelId === config.accessChannelId) {
                     const app = require(`./../app/sendModal.js`);
                     app.execute(interaction, client)
-                    await interaction.reply({ content: 'Your submission was received successfully!', ephemeral: true });
+                    await interaction.reply({ content: 'Tu postulacion se ha recibido exitosamente!', ephemeral: true });
                 }
             }
         }
