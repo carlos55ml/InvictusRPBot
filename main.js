@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { Client, GatewayIntentBits , Collection } = require('discord.js');
 const { config } = require('./config.json');
+const Log = require('./app/Log');
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -30,7 +31,7 @@ client.on('interactionCreate', async interaction => {
             console.error(error);
             await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
         }
-        console.log(`[CONSOLE ==> LOG]: ${interaction.user.tag} in #${interaction.channel.name} triggered a ${interaction} at ${interaction.createdAt} .`);
+        Log.log(`${interaction.user.tag} in #${interaction.channel.name} triggered a command ${interaction}.`);
 })
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));

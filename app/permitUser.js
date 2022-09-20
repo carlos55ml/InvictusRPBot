@@ -1,5 +1,6 @@
 const { config } = require("./../config.json")
 const { EmbedBuilder } = require('discord.js');
+const Log = require('./Log')
 
 const client = require("./../main.js")
 
@@ -18,7 +19,7 @@ module.exports = {
         }
 
         if (!targetMember) {
-            console.log("ERROR CRITICO")
+            Log.error('ERROR CRITICO AL DENEGAR USUARIO')
             return
         }
          

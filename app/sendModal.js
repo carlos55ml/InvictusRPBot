@@ -1,7 +1,8 @@
 const { config } = require("./../config.json")
 const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require('discord.js');
 
-const client = require("./../main.js")
+const client = require("./../main.js");
+const Log = require("./Log");
 
 module.exports = {
     async execute(interaction) {
@@ -59,7 +60,7 @@ module.exports = {
                 channel = client.channels.cache.get(config.accessLogChannelId)
                 channel.send({ embeds: [applyEmbed] })
             } catch (err) {
-                console.log(err)
+                Log.error(err)
             }
     }
 }
