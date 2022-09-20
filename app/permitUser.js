@@ -19,7 +19,7 @@ module.exports = {
         }
 
         if (!targetMember) {
-            Log.error('ERROR CRITICO AL DENEGAR USUARIO')
+            Log.error('ERROR CRITICO AL PERMITIR USUARIO')
             return
         }
          
