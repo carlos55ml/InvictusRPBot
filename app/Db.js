@@ -4,7 +4,7 @@ const Log = require('./Log');
 var sequelize;
 module.exports = {
     connect() {
-        sequelize = new Sequelize(config.dbConnectionString)
+        sequelize = new Sequelize(config.dbConnectionString, {logging: false})
         sequelize.authenticate()
             .then(() => {
                 Log.debug('Succesfully connected to database')
