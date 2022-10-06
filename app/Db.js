@@ -2,6 +2,7 @@ const {config} = require('./../config.json')
 const Sequelize = require('sequelize');
 const Log = require('./Log');
 var sequelize;
+var connected = false;
 module.exports = {
     connect() {
         sequelize = new Sequelize(config.dbConnectionString, {logging: false})
@@ -11,6 +12,21 @@ module.exports = {
             })
             .catch(err => {
                 Log.error('Error connecting to database ==> '+err)
+                return
             });
+        try {
+            sequelize.authenticate();
+            connected = true;
+        } catch (err) {
+            connected = false;
+            Log.error(`Error connecting to database. DETAILS: \n ${err}`)
+        } finally {
+            if (connected === true) {
+                sync()
+            }
+        }
+    },
+    sync() {
+        Log.debug('syncing')
     }
 }
