@@ -8,7 +8,7 @@ module.exports = {
     execute(client) {
         Log.debug(`${client.user.tag} SUCCESFULLY STARTED AT ${client.readyAt}`)
         //client.user.setActivity({type: 'STREAMING', name: 'InvictusRP', url: 'fivem://connect/yykq5j'});
-        client.user.setActivity('TEST')
+        client.user.setActivity('yykq5j')
 
         Db.connect();
 

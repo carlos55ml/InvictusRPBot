@@ -22,11 +22,8 @@ module.exports = {
             Log.error(`Error connecting to database. DETAILS: \n ${err}`)
         } finally {
             if (connected === true) {
-                sync()
+                Log.log('connected to db')
             }
         }
     },
-    sync() {
-        Log.debug('syncing')
-    }
 }
