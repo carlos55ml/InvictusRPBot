@@ -1,4 +1,4 @@
-const Db = require("../app/Db");
+const { ActivityType } = require("discord.js");
 const config = require("../config.json")
 const Log = require('./../app/Log')
 
@@ -10,7 +10,6 @@ module.exports = {
         //client.user.setActivity({type: 'STREAMING', name: 'InvictusRP', url: 'fivem://connect/yykq5j'});
         client.user.setActivity('yykq5j')
 
-        Db.connect();
 
     },
 };

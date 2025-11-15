@@ -22,8 +22,6 @@
   },
   "homepage": "https://github.com/carlos55ml/InvictusRPBot#readme",
   "dependencies": {
-    "discord.js": "^14.3.0",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.23.0"
+    "discord.js": "^14.16.3"
   }
 }

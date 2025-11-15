@@ -1,0 +1,16 @@
+{
+    "title":":satellite_orbital: Redes Sociales",
+    "description":"Revisa todas nuestras redes!.",
+    "color":"#00fff7",
+    "image": {
+		"url": "https://i.imgur.com/2gq1oBB.png"
+	},
+    "fields":[
+        {"name":":moneybag: - [TIENDA DE TEBEX]", "value":"https://invictusres.tebex.io"},
+        {"name":":tickets: - [Invitacion a discord]", "value":"https://discord.gg/PGFKzNz2Yq"},
+        {"name": "<:irp_twitterlogo:997156009250394202> - [Twitter]", "value": "https://twitter.com/InvictusRPES"},
+        {"name": "<:irp_instagramlogo:1003989666799829064> - [Instagram]", "value": "https://www.instagram.com/invictusrpes/"}, 
+        {"name": "<:irp_tiktoklogo:1003989463279607878> - [TikTok]", "value": "https://tiktok.com/@invictusrp"}
+    ],
+    "footer":{"text":"Redes Sociales de InvictusRP."}
+}
